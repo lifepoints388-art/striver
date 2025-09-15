@@ -34,3 +34,26 @@ arr=[-2,1,-3,4,-1,2,1,-5,4]
 n=len(arr)
 res=Max_sum_Better(arr,n)
 print(res)
+
+
+# Optimal Approach
+# Kadene's Algorithm
+def Kadenes(arr,n):
+    maxsum=-sys.maxsize-1
+    total=0
+    for i in range(n):
+        # if total==0:
+        #     start=i
+        total+=arr[i]
+        if total>maxsum:
+            maxsum=total
+            # arrStart=start 
+            # arrEnd=i 
+        if total<0:
+            total=0
+    return maxsum,"arr[arrStart:arrEnd+1]"
+
+arr=[-2,1,-3,4,-1,2,1,-5,4]
+n=len(arr)
+res=Kadenes(arr,n)
+print(res)
